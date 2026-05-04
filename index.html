@@ -219,10 +219,10 @@
             50% { transform: translateX(-50%) translateY(-10px); }
         }
 
-        /* Horizontal Ticker Section */
+        /* Horizontal Ticker (compact, more items visible) */
         .ticker-section {
             background: #ff6b35;
-            padding: 22px 0;
+            padding: 14px 0;
             border-top: 1px solid rgba(255,255,255,0.2);
             border-bottom: 1px solid rgba(255,255,255,0.2);
             overflow: hidden;
@@ -234,7 +234,7 @@
             content: '';
             position: absolute;
             top: 0;
-            width: 80px;
+            width: 60px;
             height: 100%;
             z-index: 2;
             pointer-events: none;
@@ -252,11 +252,11 @@
 
         .ticker-track {
             display: flex;
-            gap: 50px;
-            animation: tickerScroll 15s linear infinite;
+            gap: 20px;
+            animation: tickerScroll 25s linear infinite;
             width: fit-content;
             white-space: nowrap;
-            padding: 0 30px;
+            padding: 0 20px;
             color: #0f0f0f;
         }
 
@@ -272,31 +272,31 @@
         .ticker-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 6px;
             flex-shrink: 0;
-            font-size: 15px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             color: #0f0f0f;
         }
 
         .ticker-item .ticker-accent {
             color: #0f0f0f;
-            font-size: 20px;
+            font-size: 14px;
         }
 
         .ticker-item .ticker-stat {
             color: #0f0f0f;
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 800;
         }
 
         .ticker-divider {
             color: #0f0f0f;
-            font-size: 12px;
+            font-size: 8px;
             flex-shrink: 0;
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         /* Bio Section */
@@ -342,6 +342,81 @@
             font-style: italic;
             color: #999;
             border-radius: 0 6px 6px 0;
+        }
+
+        /* Contact CTA Section (under about) */
+        .contact-cta {
+            padding: 100px 50px 80px;
+            background: #0f0f0f;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .limited-badge {
+            display: inline-block;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.3); }
+            50% { transform: scale(1.04); box-shadow: 0 0 0 12px rgba(255, 107, 53, 0); }
+        }
+
+        .contact-cta h3 {
+            font-size: 46px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta .sub-heading {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 35px;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 18px 55px;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 800;
+            border-radius: 50px;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.35);
+            margin-bottom: 20px;
+        }
+
+        .email-button:hover {
+            background: #fff;
+            color: #0f0f0f;
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .inquiry-note {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+            margin-top: 5px;
         }
 
         /* Carousel Section */
@@ -463,10 +538,10 @@
             right: 20px;
         }
 
-        /* Instagram CTA */
+        /* Instagram Section (portfolio only) */
         .instagram-section {
             position: relative;
-            padding: 120px 50px;
+            padding: 110px 50px 120px;
             text-align: center;
             overflow: hidden;
             background: #0f0f0f;
@@ -487,62 +562,22 @@
         .instagram-content {
             position: relative;
             z-index: 10;
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
         .instagram-content h3 {
-            font-size: 48px;
+            font-size: 46px;
             font-weight: 800;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .instagram-content .sub-heading {
-            font-size: 18px;
-            color: #b0b0b0;
-            margin-bottom: 40px;
-            line-height: 1.5;
-        }
-
-        .email-button {
-            display: inline-block;
-            padding: 16px 48px;
-            background: transparent;
-            color: #ff6b35;
-            border: 2px solid #ff6b35;
-            border-radius: 50px;
-            font-weight: 800;
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin-bottom: 50px;
-        }
-
-        .email-button:hover {
-            background: #ff6b35;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
-        }
-
-        .instagram-divider {
-            width: 80px;
-            height: 2px;
-            background: #ff6b35;
-            margin: 30px auto 40px auto;
-            opacity: 0.6;
         }
 
         .instagram-content p {
             font-size: 18px;
             color: #b0b0b0;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             line-height: 1.8;
-            font-weight: 400;
         }
 
         .instagram-button {
@@ -600,7 +635,7 @@
             }
 
             .header-nav {
-                gap: 8px;
+                gap: 10px;
             }
 
             .header-nav a {
@@ -636,18 +671,22 @@
             }
 
             .ticker-section {
-                padding: 18px 0;
+                padding: 12px 0;
             }
 
             .ticker-track {
-                gap: 30px;
+                gap: 15px;
+                padding: 0 15px;
             }
             .ticker-item {
-                font-size: 13px;
-                gap: 8px;
+                font-size: 10px;
+                gap: 4px;
             }
             .ticker-item .ticker-stat {
-                font-size: 15px;
+                font-size: 12px;
+            }
+            .ticker-divider {
+                font-size: 6px;
             }
 
             .bio-section {
@@ -662,6 +701,23 @@
 
             .bio-content h3 {
                 font-size: 28px;
+            }
+
+            .contact-cta {
+                padding: 70px 20px 60px;
+            }
+
+            .contact-cta h3 {
+                font-size: 32px;
+            }
+
+            .contact-cta .sub-heading {
+                font-size: 16px;
+            }
+
+            .email-button {
+                padding: 16px 40px;
+                font-size: 14px;
             }
 
             .carousel-section {
@@ -693,18 +749,11 @@
             }
 
             .instagram-content h3 {
-                font-size: 34px;
+                font-size: 32px;
             }
 
-            .instagram-content .sub-heading {
-                font-size: 15px;
-                margin-bottom: 30px;
-            }
-
-            .email-button {
-                padding: 14px 35px;
-                font-size: 14px;
-                margin-bottom: 40px;
+            .instagram-content p {
+                font-size: 16px;
             }
 
             .instagram-button {
@@ -734,8 +783,11 @@
             .carousel-container {
                 height: 260px;
             }
+            .contact-cta h3 {
+                font-size: 26px;
+            }
             .instagram-content h3 {
-                font-size: 28px;
+                font-size: 26px;
             }
         }
     </style>
@@ -743,11 +795,11 @@
 <body>
     <!-- Header -->
     <header>
-        <h1>NLS Media</h1>
+        <h1>🎸 NLS Media</h1>
         <nav class="header-nav">
             <a href="#about">About</a>
+            <a href="#contact">Contact</a>
             <a href="#work">Work</a>
-            <a href="#instagram">Contact</a>
         </nav>
     </header>
 
@@ -762,7 +814,7 @@
         <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- Horizontal Scrolling Ticker -->
+    <!-- Horizontal Scrolling Ticker (compact) -->
     <section class="ticker-section">
         <div class="ticker-track" id="tickerTrack">
             <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">12+</span> Years Experience</span>
@@ -795,7 +847,7 @@
 
     <!-- Bio Section -->
     <section class="bio-section" id="about">
-        <img class="bio-image" src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" alt="Photographer portrait placeholder">
+        <img class="bio-image" src="https://placehold.co/800x1000/1a1a1a/ff6b35?text=Your+Photo+Here" alt="Photographer portrait placeholder">
         <div class="bio-content">
             <h3>BEYOND THE PIT.</h3>
             <p>I don't just photograph concerts. I live them. With roots in the music scene and a camera in my hands since 2012, I've spent thousands of hours capturing the moments that define live performance.</p>
@@ -806,6 +858,17 @@
             <p>My mission is simple: to make your fans feel exactly what it was like to be there, and to make those who weren't there regret it.</p>
             <p>From festival crowds to intimate venues, from international acts to rising stars, I've learned that the best concert photos aren't just technically perfect—they're emotionally true. They make you feel what it was like to be there.</p>
             <p>My work has been featured in music publications, used by major venues for promotional campaigns, and trusted by artists worldwide. But what matters most? When someone sees their photo and says, "Yes. That's exactly how it felt."</p>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section (right after bio) -->
+    <section class="contact-cta" id="contact">
+        <div class="contact-content">
+            <div class="limited-badge">✦ LIMITED AVAILABILITY ✦</div>
+            <h3>Ready to Capture Your Next Moment?</h3>
+            <p class="sub-heading">Let's create images that tell your story.</p>
+            <a href="mailto:hello@nlsmedia.com" class="email-button">Email Inquiry</a>
+            <p class="inquiry-note">Serious inquiries only.</p>
         </div>
     </section>
 
@@ -831,25 +894,13 @@
         </div>
     </section>
 
-    <!-- Instagram / Contact CTA -->
+    <!-- Instagram Section (portfolio + follow) -->
     <section class="instagram-section" id="instagram">
         <div class="instagram-content">
-
-
             <h3>See Our Complete Portfolio</h3>
             <p>Follow us on Instagram to see hundreds of stunning concert photos. Fresh content daily. This is where the magic lives.</p>
             <a href="https://www.instagram.com/nlsmedia" target="_blank" class="instagram-button">FOLLOW @NLSMEDIA →</a>
             <p class="dm-subtext">Or DM me directly for bookings and inquiries.</p>
-
-            <div class="instagram-divider"></div>
-            
-            <h3>Ready to Capture Your Next Moment?</h3>
-            <p class="sub-heading">Let's create images that tell your story.</p>
-            <a href="mailto:hello@nlsmedia.com" class="email-button">Email Inquiry</a>
-
-
-
-            
         </div>
     </section>
 
