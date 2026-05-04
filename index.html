@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLS Media - Premium Concert Photography</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #b0b0b0;
+            background: #0f0f0f;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background: rgba(15, 15, 15, 0.97);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.15);
+        }
+
+        header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #fff, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            flex-shrink: 0;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-nav a {
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 8px 0;
+            border: none;
+            background: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff6b35;
+            transition: width 0.25s ease;
+        }
+
+        .header-nav a:hover {
+            color: #ff6b35;
+            transform: translateY(-1px);
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            margin-top: 60px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, #0f0f0f 0%, #1a1a1a 40%, #0f0f0f 70%, #1c1410 100%);
+            z-index: -1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 30%, rgba(255, 107, 53, 0.07) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 40%);
+            animation: floatGlow 7s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes floatGlow {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(25px, -15px); }
+            66% { transform: translate(-15px, 10px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            z-index: 10;
+            padding: 40px;
+            animation: fadeInUp 1s ease-out;
+            max-width: 900px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h2 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero .subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 10px;
+            color: #ff6b35;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            font-weight: 400;
+            color: #b0b0b0;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.6;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 800;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid #ff6b35;
+            box-shadow: 0 10px 40px rgba(255, 107, 53, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.5);
+            background: transparent;
+            color: #ff6b35;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #ff6b35;
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Horizontal Ticker Section */
+        .ticker-section {
+            background: #ff6b35;
+            padding: 22px 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-section::before,
+        .ticker-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ticker-section::before {
+            left: 0;
+            background: linear-gradient(to right, #ff6b35 0%, transparent 100%);
+        }
+
+        .ticker-section::after {
+            right: 0;
+            background: linear-gradient(to left, #ff6b35 0%, transparent 100%);
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 50px;
+            animation: tickerScroll 30s linear infinite;
+            width: fit-content;
+            white-space: nowrap;
+            padding: 0 30px;
+            color: #0f0f0f;
+        }
+
+        .ticker-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0f0f0f;
+        }
+
+        .ticker-item .ticker-accent {
+            color: #0f0f0f;
+            font-size: 20px;
+        }
+
+        .ticker-item .ticker-stat {
+            color: #0f0f0f;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .ticker-divider {
+            color: #0f0f0f;
+            font-size: 12px;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            padding: 100px 50px;
+            background: #0f0f0f;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            background: #1a1a1a;
+        }
+
+        .bio-content h3 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .bio-content p {
+            font-size: 16px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .bio-highlight {
+            background: #1a1a1a;
+            padding: 20px;
+            border-left: 4px solid #ff6b35;
+            margin: 30px 0;
+            font-style: italic;
+            color: #999;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            padding: 100px 50px;
+            background: #0f0f0f;
+            text-align: center;
+        }
+
+        .carousel-section h3 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 107, 53, 0.12);
+        }
+
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 107, 53, 0.08));
+            pointer-events: none;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot.active {
+            background: #ff6b35;
+            border-color: #ff6b35;
+            width: 30px;
+            border-radius: 6px;
+        }
+
+        .carousel-dot:hover {
+            background: #ff6b35;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(15, 15, 15, 0.75);
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: #ff6b35;
+            color: #fff;
+            transform: translateY(-50%) scale(1.1);
+            border-color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        /* Instagram CTA */
+        .instagram-section {
+            position: relative;
+            padding: 120px 50px;
+            text-align: center;
+            overflow: hidden;
+            background: #0f0f0f;
+        }
+
+        .instagram-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 40%, rgba(255, 107, 53, 0.10) 0%, transparent 60%),
+                radial-gradient(ellipse at 30% 70%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .instagram-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .instagram-content h3 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .instagram-content .sub-heading {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: transparent;
+            color: #ff6b35;
+            border: 2px solid #ff6b35;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-bottom: 50px;
+        }
+
+        .email-button:hover {
+            background: #ff6b35;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .instagram-divider {
+            width: 80px;
+            height: 2px;
+            background: #ff6b35;
+            margin: 30px auto 40px auto;
+            opacity: 0.6;
+        }
+
+        .instagram-content p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .instagram-button {
+            display: inline-block;
+            padding: 20px 60px;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 800;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid #ff6b35;
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .instagram-button:hover {
+            background: transparent;
+            color: #ff6b35;
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.35);
+        }
+
+        .dm-subtext {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: #b0b0b0;
+            text-align: center;
+            padding: 40px;
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 107, 53, 0.25);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 18px;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            header h1 {
+                font-size: 20px;
+                letter-spacing: 0;
+            }
+
+            .header-nav {
+                gap: 8px;
+            }
+
+            .header-nav a {
+                font-size: 13px;
+                padding: 6px 0;
+                letter-spacing: 0.5px;
+            }
+
+            .hero {
+                margin-top: 70px;
+                height: auto;
+                padding: 60px 20px;
+                min-height: 85vh;
+            }
+
+            .hero h2 {
+                font-size: 42px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+                letter-spacing: 1px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
+            .hero-cta {
+                padding: 16px 40px;
+                font-size: 14px;
+            }
+
+            .ticker-section {
+                padding: 18px 0;
+            }
+
+            .ticker-track {
+                gap: 30px;
+            }
+            .ticker-item {
+                font-size: 13px;
+                gap: 8px;
+            }
+            .ticker-item .ticker-stat {
+                font-size: 15px;
+            }
+
+            .bio-section {
+                grid-template-columns: 1fr;
+                padding: 60px 20px;
+                gap: 40px;
+            }
+
+            .bio-image {
+                height: 300px;
+            }
+
+            .bio-content h3 {
+                font-size: 28px;
+            }
+
+            .carousel-section {
+                padding: 60px 20px;
+            }
+
+            .carousel-section h3 {
+                font-size: 32px;
+            }
+
+            .carousel-container {
+                height: 380px;
+            }
+
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .carousel-arrow.prev {
+                left: 10px;
+            }
+            .carousel-arrow.next {
+                right: 10px;
+            }
+
+            .instagram-section {
+                padding: 80px 20px;
+            }
+
+            .instagram-content h3 {
+                font-size: 34px;
+            }
+
+            .instagram-content .sub-heading {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+
+            .email-button {
+                padding: 14px 35px;
+                font-size: 14px;
+                margin-bottom: 40px;
+            }
+
+            .instagram-button {
+                padding: 16px 40px;
+                font-size: 14px;
+            }
+
+            .dm-subtext {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 18px;
+            }
+            .header-nav a {
+                font-size: 11px;
+                padding: 4px 0;
+            }
+            .hero h2 {
+                font-size: 34px;
+            }
+            .hero .subtitle {
+                font-size: 15px;
+            }
+            .carousel-container {
+                height: 260px;
+            }
+            .instagram-content h3 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>🎸 NLS Media</h1>
+        <nav class="header-nav">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#instagram">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>THE ENERGY.<br>THE PASSION.<br>THE MOMENT.</h2>
+            <div class="subtitle">PREMIUM CONCERT PHOTOGRAPHY</div>
+            <p class="hero-description">Raw moments, refined artistry. Every shot tells the story of an artist in their element. From festival stages to intimate venues — I freeze the magic.</p>
+            <a href="#work" class="hero-cta">SEE THE WORK</a>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </section>
+
+    <!-- Horizontal Scrolling Ticker -->
+    <section class="ticker-section">
+        <div class="ticker-track" id="tickerTrack">
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">12+</span> Years Experience</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">500+</span> Events Covered</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">15</span> Industry Awards</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">98%</span> Client Satisfaction</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Premium Concert Photography</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Live Event Specialist</span>
+            <span class="ticker-divider">●</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">12+</span> Years Experience</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">500+</span> Events Covered</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">15</span> Industry Awards</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> <span class="ticker-stat">98%</span> Client Satisfaction</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Premium Concert Photography</span>
+            <span class="ticker-divider">●</span>
+            <span class="ticker-item"><span class="ticker-accent">◆</span> Live Event Specialist</span>
+            <span class="ticker-divider">●</span>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="bio-section" id="about">
+        <img class="bio-image" src="https://placehold.co/800x1000/1a1a1a/ff6b35?text=Your+Photo+Here" alt="Photographer portrait placeholder">
+        <div class="bio-content">
+            <h3>BEYOND THE PIT.</h3>
+            <p>I don't just photograph concerts. I live them. With roots in the music scene and a camera in my hands since 2012, I've spent thousands of hours capturing the moments that define live performance.</p>
+            <div class="bio-highlight">
+                "Every shot is a conversation between me, the artist, and the audience. It's about freezing the moment where the energy becomes tangible."
+            </div>
+            <p>I don't just take photos; I document the culture. With a background in rock and metal and years of navigating the chaos of backstage, I provide a perspective that most miss. I am a fly on the wall for the intimate moments and a front-row witness to the explosion of the stage.</p>
+            <p>My mission is simple: to make your fans feel exactly what it was like to be there, and to make those who weren't there regret it.</p>
+            <p>From festival crowds to intimate venues, from international acts to rising stars, I've learned that the best concert photos aren't just technically perfect—they're emotionally true. They make you feel what it was like to be there.</p>
+            <p>My work has been featured in music publications, used by major venues for promotional campaigns, and trusted by artists worldwide. But what matters most? When someone sees their photo and says, "Yes. That's exactly how it felt."</p>
+        </div>
+    </section>
+
+    <!-- Image Carousel Section -->
+    <section class="carousel-section" id="work">
+        <h3>Our Work Speaks</h3>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69b13d835?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1501612780353-fd45cb2d51c7?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1483389127117-b6a2102724ae?w=1000&h=600&fit=crop');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1498514066265-3f4a4a2f8166?w=1000&h=600&fit=crop');"></div>
+            </div>
+            <div class="carousel-controls" id="carouselDots"></div>
+            <button class="carousel-arrow prev" id="prevBtn">‹</button>
+            <button class="carousel-arrow next" id="nextBtn">›</button>
+        </div>
+    </section>
+
+    <!-- Instagram / Contact CTA -->
+    <section class="instagram-section" id="instagram">
+        <div class="instagram-content">
+            <h3>Ready to Capture Your Next Moment?</h3>
+            <p class="sub-heading">Let's create images that tell your story.</p>
+            <a href="mailto:hello@nlsmedia.com" class="email-button">Email Inquiry</a>
+
+            <div class="instagram-divider"></div>
+
+            <h3>See Our Complete Portfolio</h3>
+            <p>Follow us on Instagram to see hundreds of stunning concert photos. Fresh content daily. This is where the magic lives.</p>
+            <a href="https://www.instagram.com/nlsmedia" target="_blank" class="instagram-button">FOLLOW @NLSMEDIA →</a>
+            <p class="dm-subtext">Or DM me directly for bookings and inquiries.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NLS Media | Premium Concert & Live Event Photography | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const carouselTrack = document.getElementById('carouselTrack');
+        const carouselDots = document.getElementById('carouselDots');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        const slides = carouselTrack.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+        let currentIndex = 0;
+        let autoLoopInterval;
+
+        // Create dots
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+            dot.addEventListener('click', () => goToSlide(i));
+            carouselDots.appendChild(dot);
+        }
+
+        const dots = carouselDots.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetAutoLoop();
+        }
+
+        function resetAutoLoop() {
+            clearInterval(autoLoopInterval);
+            autoLoopInterval = setInterval(nextSlide, 5000);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoLoop();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoLoop();
+        });
+
+        // Start auto-loop
+        autoLoopInterval = setInterval(nextSlide, 5000);
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
